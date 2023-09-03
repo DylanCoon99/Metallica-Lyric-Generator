@@ -20,8 +20,8 @@ def get_lyrics(artist, n):
 		songs = (genius.search_artist(artist, max_songs=n, sort='popularity')).songs
 		songs = [song.lyrics for song in songs]
 
-		with open(path, "w") as file:
-			file.write("\n \n <end> \n \n".join(songs))
+		with open(path, "w", encoding='utf-8') as file:
+			file.write("\n <end> \n".join(songs))
 		
 		print(f"Songs grabbed: {len(songs)}")
 	except Timeout:
